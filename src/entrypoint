@@ -1,0 +1,16 @@
+#!/bin/bash
+
+JAVA=/usr/java/latest/jre/bin/java
+
+JAVA_CMD="${JAVA} $LIQUIBASE_JAVA_OPTIONS -jar /usr/lib/liquibase/liquibase.jar"
+PARAMS=""
+[ -n "$LIQUIBASE_DRIVER" ] && PARAMS="$PARAMS --driver=$LIQUIBASE_DRIVERS"
+[ -n "$LIQUIBASE_CLASSPATH" ] && PARAMS="$PARAMS --classpath=$LIQUIBASE_CLASSPATH"
+[ -n "$LIQUIBASE_CHANGELOG" ] && PARAMS="$PARAMS --changeLogFile=$LIQUIBASE_CHANGELOG"
+[ -n "$LIQUIBASE_URL" ] && PARAMS="$PARAMS --url=$LIQUIBASE_URL"
+[ -n "$DATABASE_USER" ] && PARAMS="$PARAMS --userName=$DATABASE_USER"
+[ -n "$DATABASE_PASSWORD" ] && PARAMS="$PARAMS --password=$DATABASE_PASSWORD"
+[ -n "$LIQUIBASE_ACTION" ] && PARAMS="$PARAMS $LIQUIBASE_ACTION"
+
+chown -R ${APP_USER}:${APP_GROUP} ${APP_HOME}
+gosu ${APP_USER}:${APP_GROUP} ${JAVA_CMD} ${PARAMS}
