@@ -11,8 +11,8 @@ function install_liquibase() {
     cd /usr/lib/liquibase
     tar -xzvf /tmp/liquibase.tar.gz
     cd /usr/lib/liquibase/drivers
-    curl -sSL -o mariadb-java-client-${MARIDB_CONNECTOR_VERSION}.jar \
-        https://downloads.mariadb.com/Connectors/java/connector-java-${MARIDB_CONNECTOR_VERSION}/mariadb-java-client-${MARIDB_CONNECTOR_VERSION}.jar
+    curl -sSL -o mariadb-java-client-${MARIADB_CONNECTOR_VERSION}.jar \
+        https://downloads.mariadb.com/Connectors/java/connector-java-${MARIADB_CONNECTOR_VERSION}/mariadb-java-client-${MARIADB_CONNECTOR_VERSION}.jar
     curl -sSL -o postgresql-${POSTGRES_CONNECTOR_VERSION}.jar https://jdbc.postgresql.org/download/postgresql-${POSTGRES_CONNECTOR_VERSION}.jar
     
     rm /tmp/liquibase.tar.gz
