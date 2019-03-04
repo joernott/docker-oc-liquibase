@@ -2,6 +2,7 @@ FROM registry.ott-consult.de/oc/java8:latest
 MAINTAINER Joern Ott <joern.ott@ott-consult.de>
 
 ENV LIQUIBASE_VERSION=3.6.3 \
+    LIQUIBASE_HOME="/usr/lib/liquibase" \
     APP_USER=liquibase \
     APP_UID=20002 \
     APP_GROUP=liquibase \

@@ -2,7 +2,7 @@
 
 JAVA=/usr/java/latest/jre/bin/java
 
-JAVA_CMD="${JAVA} $LIQUIBASE_JAVA_OPTIONS -jar /usr/lib/liquibase/liquibase.jar"
+CMD="${LIQUIBASE_HOME}/liquibase"
 PARAMS=""
 [ -n "$LIQUIBASE_DRIVER" ] && PARAMS="$PARAMS --driver=$LIQUIBASE_DRIVERS"
 [ -n "$LIQUIBASE_CLASSPATH" ] && PARAMS="$PARAMS --classpath=$LIQUIBASE_CLASSPATH"
